@@ -9,7 +9,9 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
 }
 
-.nav li {
-  display: inline;
-  padding-left: 12px;
+.nav {
+  li {
+    display: inline;
+    padding-left: 12px;
+  }
 }
