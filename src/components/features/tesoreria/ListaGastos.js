@@ -27,11 +27,11 @@ const ListaGastos = () => {
       ) : (
         <ul>
           {gastos.map((gasto) => {
-            const { id, name } = gasto;
+            const { id, title } = gasto;
 
             return (
               <li key={`movimiento-${id}`}>
-                {id} {name}
+                {id} {title}
               </li>
             );
           })}
