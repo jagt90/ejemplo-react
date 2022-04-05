@@ -9,7 +9,8 @@ const ListaGastos = () => {
   const payload = {
     selector: selectGastos,
     fetchService: fetchGastos,
-    fetchParams: { FecAlta: '2022-01-01', FecAltaFin: '2022-03-01', Grupo_Id: '1' },
+    // fetchParams: { FecAlta: '2022-01-01', FecAltaFin: '2022-03-01', Grupo_Id: '1' },
+    fetchParams: {},
   };
 
   const { data: gastos, loading, failed } = useAdsisService(payload);
@@ -26,11 +27,11 @@ const ListaGastos = () => {
       ) : (
         <ul>
           {gastos.map((gasto) => {
-            const { Id_Movimiento, Empresa, monto } = gasto;
+            const { id, name } = gasto;
 
             return (
-              <li key={`movimiento-${Id_Movimiento}`}>
-                {Id_Movimiento} {Empresa} {monto}
+              <li key={`movimiento-${id}`}>
+                {id} {name}
               </li>
             );
           })}

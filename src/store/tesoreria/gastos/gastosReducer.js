@@ -1,6 +1,7 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 
-import { getGastos } from '../../../services/adsis/tesoreria/gastos/gastosService';
+// import { getGastos } from '../../../services/adsis/tesoreria/gastos/gastosService';
+import { getPosts } from '../../../services/placeholder/posts/postsService';
 
 const initialState = {
   data: [],
@@ -9,9 +10,10 @@ const initialState = {
 };
 
 export const fetchGastos = createAsyncThunk('tesoreria/gastos/fetchGastos', async (params, thunkApi) => {
-  const { data } = await getGastos(params);
+  // const { data } = await getGastos(params);
+  const { data } = await getPosts(params);
 
-  return data;
+  return data.splice(0, 10);
 });
 
 const gastosSlice = createSlice({
