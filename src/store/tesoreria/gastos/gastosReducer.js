@@ -20,20 +20,20 @@ const gastosSlice = createSlice({
   name: 'gastos',
   initialState,
   reducers: {},
-  extraReducers: {
-    [fetchGastos.pending]: (state) => {
+  extraReducers: (builder) => {
+    builder.addCase(fetchGastos.pending, (state, action) => {
       state.loading = true;
       state.failed = false;
-    },
-    [fetchGastos.fulfilled]: (state, { payload }) => {
+    });
+    builder.addCase(fetchGastos.fulfilled, (state, action) => {
+      state.data = action.payload;
       state.loading = false;
-      state.data = payload;
       state.failed = false;
-    },
-    [fetchGastos.rejected]: (state) => {
+    });
+    builder.addCase(fetchGastos.rejected, (state, action) => {
       state.loading = false;
       state.failed = true;
-    },
+    });
   },
 });
 

@@ -1,9 +1,9 @@
 import { combineReducers } from '@reduxjs/toolkit';
 
-import tesoreriaReducers from './tesoreria/tesoreriaReducers';
+import gastosReducer from './tesoreria/gastos/gastosReducer';
 
 const rootReducer = combineReducers({
-  tesoreria: tesoreriaReducers,
+  gastos: gastosReducer,
 });
 
 export default rootReducer;

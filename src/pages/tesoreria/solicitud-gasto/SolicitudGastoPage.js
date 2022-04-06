@@ -1,4 +1,5 @@
 import React from 'react';
+
 import ListaGastos from '../../../components/features/tesoreria/ListaGastos';
 
 const SolicitudGastoPage = () => {
