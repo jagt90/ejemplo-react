@@ -2,10 +2,12 @@ import axios from 'axios';
 
 const defaultIntercerptos = {
   requestError: (error) => {
+    console.log(error.response);
     return Promise.reject(error);
   },
   responseError: (error) => {
     const expectedError = error.response && error.response.status >= 400 && error.response.status < 500;
+    console.log(error.response);
     if (!expectedError) {
       // TODO: implement logger service
       // TODO: show generic error
@@ -39,9 +41,11 @@ class HttpClient {
   }
 
   init() {
-    if (this.defaultIntercerptos) {
+    if (this.#hasDefaultInterceptors) {
       this.setResponseInterceptors(null, defaultIntercerptos.responseError);
     }
+
+    return this;
   }
 }
 
